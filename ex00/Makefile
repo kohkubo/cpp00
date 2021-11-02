@@ -1,6 +1,6 @@
 NAME = megaphone
 CXX = clang++
-CXXFLAGS = -Wall -Werror -Wextra
+CXXFLAGS = -Wall -Werror -Wextra -g -fsanitize=address -fsanitize=undefined -fsanitize=leak
 
 srcs = megaphone.cpp
 

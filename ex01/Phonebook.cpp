@@ -1,6 +1,7 @@
 #include "Contact.hpp"
 #include "Phonebook.hpp"
 #include "Color.hpp"
+#include <iomanip>
 
 bool isNumber(const std::string& str)
 {
@@ -9,12 +10,12 @@ bool isNumber(const std::string& str)
 
 void printColor(const char *style, const char *str)
 {
-        std::cout << std::endl
-                  << style
-                  << str
-                  << std::endl
-                  << std::endl
-                  << END;
+    std::cout << '\n'
+                << style
+                << str
+                << '\n'
+                << std::endl
+                << END;
 }
 
 void Phonebook::exit()
@@ -35,7 +36,7 @@ void Phonebook::addItem(int i, void (Contact::*fn)(std::string), std::string s)
         if (!std::getline(std::cin, line))
             exit();
     }
-    (contact[i].*fn)(line);
+    (this->contact[i].*fn)(line);
 }
 
 void Phonebook::add(int i)
@@ -83,7 +84,7 @@ void Phonebook::search()
 {
     std::cout << GREEN UNDERLINE
               << "                                                     "
-              << std::endl
+              << '\n'
               << "|   INDEX    | FIRST NAME | LAST NAME  | NICK NAME  |"
               << std::endl
               << END;
@@ -102,18 +103,15 @@ void Phonebook::search()
     std::string input;
     if (!std::getline(std::cin, input))
         exit();
-    while (input.empty() || isNumber(input) == false)
+    if (input.empty() || isNumber(input) == false)
     {
-        printColor(RED BOLD, "PLEASE INPUT INDEX");
-        if (!std::getline(std::cin, input))
-            exit();
+        printColor(RED BOLD, "INVALID INDEX");
+        return ;
     }
     int index;
-    try {
-        index = std::stoi(input);
-    }
-    catch (std::exception& e) {
-        printColor(RED BOLD, "INVALID ARGUMENT");
+    if (!(std::istringstream(input) >> index))
+    {
+        printColor(RED BOLD, "INVALID INDEX");
         return ;
     }
     if (index < 0 || index > 7 || contact[index].getFirstName() == "")

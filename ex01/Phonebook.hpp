@@ -8,14 +8,14 @@
 class Phonebook
 {
 public:
-    void addItem(int i, void (Contact::*fn)(std::string), std::string s);
-    void printItem(std::string s);
     void add(int i);
     void search();
     void exit();
+private:
+    void printItem(std::string s);
     void printContacts(int i);
     void printContact(std::string s, std::string t);
-private:
+    void addItem(int i, void (Contact::*fn)(std::string), std::string s);
     Contact contact[8];
 };
 

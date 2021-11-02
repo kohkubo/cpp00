@@ -10,12 +10,12 @@ int main()
     while (1)
     {
         std::string input;
-        std::cout << std::endl
+        std::cout << '\n'
                   << BLUE UNDERLINE
                   << "Enter a command: ADD, SEARCH, EXIT"
-                  << END
+                  << '\n'
                   << std::endl
-                  << std::endl;
+                  << END;
         if (!std::getline(std::cin, input))
             break ;
         if (input == "EXIT")
