@@ -1,0 +1,10 @@
+ADD
+taro
+tanaka
+taro0
+09011111111
+test
+
+SEARCH
+0
+EXIT
