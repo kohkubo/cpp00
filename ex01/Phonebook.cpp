@@ -1,5 +1,5 @@
-#include "Contact.Class.hpp"
-#include "Phonebook.Class.hpp"
+#include "Contact.hpp"
+#include "Phonebook.hpp"
 #include "Color.hpp"
 
 bool isNumber(const std::string& str)

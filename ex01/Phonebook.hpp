@@ -3,7 +3,7 @@
 
 # include <iostream>
 # include <string>
-# include "Contact.Class.hpp"
+# include "Contact.hpp"
 
 class Phonebook
 {
