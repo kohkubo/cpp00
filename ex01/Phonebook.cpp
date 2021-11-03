@@ -103,13 +103,8 @@ void Phonebook::search()
     std::string input;
     if (!std::getline(std::cin, input))
         exit();
-    if (input.empty() || isNumber(input) == false)
-    {
-        printColor(RED BOLD, "INVALID INDEX");
-        return ;
-    }
     int index;
-    if (!(std::istringstream(input) >> index))
+    if (input.empty() || isNumber(input) == false || !(std::istringstream(input) >> index))
     {
         printColor(RED BOLD, "INVALID INDEX");
         return ;

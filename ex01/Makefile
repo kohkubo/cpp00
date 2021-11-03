@@ -2,7 +2,7 @@ NAME = phonebook
 CXX = clang++
 CXXFLAGS = -Wall -Werror -Wextra -g -std=c++98 -pedantic -fsanitize=integer -fsanitize=address -fsanitize=leak
 
-srcs = main.cpp phonebook.cpp
+srcs = main.cpp Phonebook.cpp Contact.cpp
 
 all: $(NAME)
 

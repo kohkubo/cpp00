@@ -1,7 +1,7 @@
 #include <iostream>
 
 void megaphone(const std::string &s) {
-    std::string d;
+    std::string d(s);
     std::transform(s.begin(), s.end(), d.begin(), toupper);
     std::cout << d;
 }

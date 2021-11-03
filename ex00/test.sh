@@ -13,5 +13,5 @@ echo "DAMNIT ! SORRY STUDENTS, I THOUGHT THIS THING WAS OFF." >> expect
 
 echo "* LOUD AND UNBEARABLE FEEDBACK NOISE *" >> expect
 
-diff out expect
+diff out expect -y
 rm -rf out expect megaphone
