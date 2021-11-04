@@ -22,4 +22,4 @@ re: fclean all
 debug: $(srcs)
 	$(CXX) $(CXXFLAGS) -g -fsanitize=integer -fsanitize=address -fsanitize=leak -o $(NAME) $(srcs)
 
-PHONY: all clean fclean re
+PHONY: all clean fclean re debug
