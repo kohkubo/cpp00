@@ -146,5 +146,5 @@ void Phonebook::search() const
         printColor(RED BOLD, "INDEX OUT OF RANGE");
         return ;
     }
-    printContacts(index);
+    this->printContacts(index);
 }
