@@ -3,12 +3,12 @@
 #include "Color.hpp"
 #include <iomanip>
 
-bool isNumber(const std::string& str)
+static bool isNumber(const std::string& str)
 {
     return str.find_first_not_of( "0123456789" ) == std::string::npos;
 }
 
-void printColor(const char *style, const char *str)
+static void printColor(const char *style, const char *str)
 {
     std::cout << '\n'
                 << style
@@ -116,3 +116,4 @@ void Phonebook::search()
     }
     printContacts(index);
 }
+
