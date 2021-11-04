@@ -116,4 +116,3 @@ void Phonebook::search()
     }
     printContacts(index);
 }
-
