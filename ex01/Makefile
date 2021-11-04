@@ -1,6 +1,6 @@
 NAME = phonebook
 CXX = clang++
-CXXFLAGS = -Wall -Werror -Wextra -g -std=c++98 -pedantic -fsanitize=integer -fsanitize=address -fsanitize=leak
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic
 
 srcs = main.cpp Phonebook.cpp Contact.cpp
 
@@ -18,5 +18,8 @@ fclean:
 	@$(RM) -rf *.dSYM
 
 re: fclean all
+
+debug: $(srcs)
+	$(CXX) $(CXXFLAGS) -g -fsanitize=integer -fsanitize=address -fsanitize=leak -o $(NAME) $(srcs)
 
 PHONY: all clean fclean re

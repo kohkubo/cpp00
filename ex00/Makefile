@@ -1,6 +1,6 @@
 NAME = megaphone
 CXX = clang++
-CXXFLAGS = -Wall -Werror -Wextra -g -fsanitize=address -fsanitize=undefined -fsanitize=leak
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic
 
 srcs = megaphone.cpp
 
@@ -18,5 +18,8 @@ fclean:
 	@$(RM) -rf *.dSYM
 
 re: fclean all
+
+debug: $(srcs)
+	$(CXX) $(CXXFLAGS) -g -fsanitize=integer -fsanitize=address -fsanitize=leak -o $(NAME) $(srcs)
 
 PHONY: all clean fclean re

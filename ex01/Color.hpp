@@ -12,6 +12,6 @@
 #define CYAN            "\033[36m"
 #define WHITE           "\033[37m"
 #define UNDERLINE       "\033[4m"
-#define BOLD_UNDERLINE  "\033[1m\033[4m"
+#define BOLD_UNDERLINE  "\033[1;4m"
 
 #endif

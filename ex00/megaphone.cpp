@@ -1,9 +1,10 @@
 #include <iostream>
 
-void megaphone(const std::string &s) {
-    std::string d(s);
-    std::transform(s.begin(), s.end(), d.begin(), toupper);
-    std::cout << d;
+void megaphone(char *s) {
+    while(*s) {
+        *s = tolower(*s);
+        s++;
+    }
 }
 
 int main(int ac, char **av) {
@@ -11,7 +12,7 @@ int main(int ac, char **av) {
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
         return 0;
     }
-    for (int i = 1; i < ac; i++) {
+    for (int i = 1; i < ac; ++i) {
         megaphone(av[i]);
     }
     std::cout << std::endl;

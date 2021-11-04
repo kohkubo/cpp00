@@ -8,16 +8,16 @@
 class Contact
 {
 public:
-    void setFirstName(std::string s);
-    void setLastName(std::string s);
-    void setNickname(std::string s);
-    void setphoneNumber(std::string s);
-    void setDarkestSecret(std::string s);
-    std::string getFirstName();
-    std::string getLastName();
-    std::string getNickname();
-    std::string getPhoneNumber();
-    std::string getDarkestSecret();
+    void setFirstName(const std::string s);
+    void setLastName(const std::string s);
+    void setNickname(const std::string s);
+    void setphoneNumber(const std::string s);
+    void setDarkestSecret(const std::string s);
+    const std::string &getFirstName() const;
+    const std::string &getLastName() const;
+    const std::string &getNickname() const;
+    const std::string &getPhoneNumber() const;
+    const std::string &getDarkestSecret() const;
 private:
     std::string firstName;
     std::string lastName;
