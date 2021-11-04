@@ -1,10 +1,15 @@
 #include <iostream>
 
 void megaphone(char *s) {
-    while(*s) {
-        *s = tolower(*s);
-        s++;
+    int i = 0;
+
+    while (s[i] != '\0') {
+        if (s[i] >= 'a' && s[i] <= 'z') {
+            s[i] -= 32;
+        }
+        i++;
     }
+    std::cout << s;
 }
 
 int main(int ac, char **av) {
