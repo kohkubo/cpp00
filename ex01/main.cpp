@@ -2,7 +2,6 @@
 
 int main()
 {
-    Phonebook *phonebook = new Phonebook();
-    delete phonebook;
+    Phonebook phonebook;
     return 0;
 }
