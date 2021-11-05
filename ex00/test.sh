@@ -1,6 +1,6 @@
 #!/bin/sh
 
-make re
+make debug
 ./megaphone "shhhhh... I think the students are asleep..." > out
 
 echo "SHHHHH... I THINK THE STUDENTS ARE ASLEEP..." > expect

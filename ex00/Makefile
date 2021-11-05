@@ -1,28 +1,30 @@
 NAME = megaphone
 CXX = clang++
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic -MMD -MP
+-include $(depends)
+depends = $(objs:.o=.d)
 
 srcs = megaphone.cpp
+objs = $(srcs:.cpp=.o)
 
 .PHONY: all
 all: $(NAME)
 
-$(NAME): $(srcs)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(srcs)
+$(NAME): $(objs)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(objs)
 
 .PHONY: clean
 clean:
-	@$(RM) -rf *.dSYM
+	$(RM) -rf *.dSYM
+	$(RM) -rf $(objs) $(depends)
 
 .PHONY: fclean
-fclean:
-	@$(RM) -rf $(NAME)
-	@$(RM) -rf *.dSYM
+fclean: clean
+	$(RM) -rf $(NAME)
 
 .PHONY: re
 re: fclean all
 
 .PHONY: debug
-debug: $(srcs)
-	$(CXX) $(CXXFLAGS) -g -fsanitize=integer -fsanitize=address -fsanitize=leak -o $(NAME) $(srcs)
-
+debug: CXXFLAGS += -g -fsanitize=integer -fsanitize=address -fsanitize=leak
+debug: re
