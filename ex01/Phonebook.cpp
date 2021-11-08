@@ -49,13 +49,13 @@ Phonebook::Phonebook(void)
     try {
         while (1)
         {
-            std::string input;
-            std::cout << '\n'
-                    << BLUE UNDERLINE
+            std::cout << BLUE UNDERLINE
+                    << '\n'
                     << "Enter a command: ADD, SEARCH, EXIT"
                     << '\n'
                     << std::endl
                     << END;
+            std::string input;
             if (!std::getline(std::cin, input))
                 break ;
             if (input == "EXIT")
@@ -124,7 +124,9 @@ void Phonebook::search() const
     {
         if (contact[i].getFirstName() == "")
             break ;
-        printItem(std::to_string(i));
+        std::stringstream ss;
+        ss << i;
+        printItem(ss.str());
         printItem(contact[i].getFirstName());
         printItem(contact[i].getLastName());
         printItem(contact[i].getNickname());
@@ -148,5 +150,3 @@ void Phonebook::search() const
     }
     this->printContacts(index);
 }
-
-
