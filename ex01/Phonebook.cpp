@@ -3,42 +3,43 @@
 #include "Color.hpp"
 #include <iomanip>
 
-namespace {
-    bool isNumber(const std::string& str)
+namespace
+{
+    bool isNumber(const std::string &str)
     {
-        return str.find_first_not_of( "0123456789" ) == std::string::npos;
+        return str.find_first_not_of("0123456789") == std::string::npos;
     }
 
     void printColor(const char *style, const char *str)
     {
         std::cout << '\n'
-                    << style
-                    << str
-                    << '\n'
-                    << std::endl
-                    << END;
+                  << style
+                  << str
+                  << '\n'
+                  << std::endl
+                  << END;
     }
 
     void printItem(const std::string &s)
     {
         std::cout << UNDERLINE
-                << "|";
-        std::cout << " ";
+                  << "|"
+                  << " ";
         if (s.size() > 10)
             std::cout << s.substr(0, 9) + ".";
         else
             std::cout << std::right << std::setw(10) << s;
         std::cout << " "
-                << END;
+                  << END;
     }
 
     void printContact(const std::string s1, const std::string s2)
     {
         std::cout << UNDERLINE
-                << s1
-                << s2
-                << std::endl
-                << END;
+                  << s1
+                  << s2
+                  << std::endl
+                  << END;
     }
 }
 
@@ -46,26 +47,29 @@ Phonebook::Phonebook(void)
 {
     unsigned int i = 0;
 
-    try {
+    try
+    {
         while (1)
         {
             std::cout << BLUE UNDERLINE
-                    << '\n'
-                    << "Enter a command: ADD, SEARCH, EXIT"
-                    << '\n'
-                    << std::endl
-                    << END;
+                      << '\n'
+                      << "Enter a command: ADD, SEARCH, EXIT"
+                      << '\n'
+                      << std::endl
+                      << END;
             std::string input;
             if (!std::getline(std::cin, input))
-                break ;
+                break;
             if (input == "EXIT")
-                return ;
+                return;
             else if (input == "ADD")
                 Phonebook::add(i++ % 8);
             else if (input == "SEARCH")
                 Phonebook::search();
         }
-    } catch (std::exception &e) {
+    }
+    catch (std::exception &e)
+    {
         std::cerr << "Error" << std::endl;
     }
 }
@@ -93,11 +97,11 @@ void Phonebook::addItem(int i, void (Contact::*fn)(std::string), const std::stri
 
 void Phonebook::add(int i)
 {
-    this->addItem(i, &Contact::setFirstName,    "first name     : ");
-    this->addItem(i, &Contact::setLastName,     "last name      : ");
-    this->addItem(i, &Contact::setNickname,     "nickname       : ");
-    this->addItem(i, &Contact::setphoneNumber,  "phone number   : ");
-    this->addItem(i, &Contact::setDarkestSecret,"darkest secret : ");
+    this->addItem(i, &Contact::setFirstName,     "first name     : ");
+    this->addItem(i, &Contact::setLastName,      "last name      : ");
+    this->addItem(i, &Contact::setNickname,      "nickname       : ");
+    this->addItem(i, &Contact::setphoneNumber,   "phone number   : ");
+    this->addItem(i, &Contact::setDarkestSecret, "darkest secret : ");
 }
 
 void Phonebook::printContacts(int i) const
@@ -113,7 +117,7 @@ void Phonebook::printContacts(int i) const
 void Phonebook::search() const
 {
     if (contact[0].getFirstName() == "")
-        return ;
+        return;
     std::cout << GREEN UNDERLINE
               << "                                                     "
               << '\n'
@@ -123,7 +127,7 @@ void Phonebook::search() const
     for (size_t i = 0; i < 8; i++)
     {
         if (contact[i].getFirstName() == "")
-            break ;
+            break;
         std::stringstream ss;
         ss << i;
         printItem(ss.str());
@@ -141,12 +145,12 @@ void Phonebook::search() const
     if (input.empty() || isNumber(input) == false || !(std::istringstream(input) >> index))
     {
         printColor(RED BOLD, "INVALID INDEX");
-        return ;
+        return;
     }
     if (index < 0 || index > 7 || contact[index].getFirstName() == "")
     {
         printColor(RED BOLD, "INDEX OUT OF RANGE");
-        return ;
+        return;
     }
     this->printContacts(index);
 }
