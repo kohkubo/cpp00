@@ -1,10 +1,10 @@
-NAME = phonebook
+NAME = prog
 CXX = clang++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic -MMD -MP
 -include $(depends)
 depends = $(objs:.o=.d)
 
-srcs = main.cpp Phonebook.cpp Contact.cpp
+srcs = tests.cpp Account.cpp
 objs = $(srcs:.cpp=.o)
 
 .PHONY: all
