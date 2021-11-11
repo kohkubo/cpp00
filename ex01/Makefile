@@ -1,11 +1,11 @@
 NAME = phonebook
 CXX = clang++
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic -MMD -MP
--include $(depends)
-depends = $(objs:.o=.d)
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic -MMD -MP 
 
 srcs = main.cpp Phonebook.cpp Contact.cpp
 objs = $(srcs:.cpp=.o)
+depends = $(objs:.o=.d)
+-include $(depends)
 
 .PHONY: all
 all: $(NAME)

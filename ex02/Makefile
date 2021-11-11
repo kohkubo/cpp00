@@ -1,11 +1,11 @@
 NAME = prog
 CXX = clang++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic -MMD -MP
--include $(depends)
-depends = $(objs:.o=.d)
 
 srcs = tests.cpp Account.cpp
 objs = $(srcs:.cpp=.o)
+depends = $(objs:.o=.d)
+-include $(depends)
 
 .PHONY: all
 all: $(NAME)

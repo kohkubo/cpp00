@@ -1,11 +1,11 @@
 NAME = megaphone
 CXX = clang++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic -MMD -MP
--include $(depends)
-depends = $(objs:.o=.d)
 
 srcs = megaphone.cpp
 objs = $(srcs:.cpp=.o)
+depends = $(objs:.o=.d)
+-include $(depends)
 
 .PHONY: all
 all: $(NAME)

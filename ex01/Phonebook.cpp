@@ -97,10 +97,10 @@ void Phonebook::addItem(int i, void (Contact::*fn)(std::string), const std::stri
 
 void Phonebook::add(int i)
 {
-    this->addItem(i, &Contact::setFirstName,     "first name     : ");
-    this->addItem(i, &Contact::setLastName,      "last name      : ");
-    this->addItem(i, &Contact::setNickname,      "nickname       : ");
-    this->addItem(i, &Contact::setphoneNumber,   "phone number   : ");
+    this->addItem(i, &Contact::setFirstName, "first name     : ");
+    this->addItem(i, &Contact::setLastName, "last name      : ");
+    this->addItem(i, &Contact::setNickname, "nickname       : ");
+    this->addItem(i, &Contact::setphoneNumber, "phone number   : ");
     this->addItem(i, &Contact::setDarkestSecret, "darkest secret : ");
 }
 
